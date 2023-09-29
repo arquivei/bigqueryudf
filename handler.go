@@ -1,10 +1,8 @@
 package bigqueryudf
 
 import (
-	"bytes"
 	"encoding/json"
 	"fmt"
-	"io"
 	"net/http"
 
 	"golang.org/x/sync/errgroup"
@@ -61,13 +59,9 @@ func decodeRequestBody(r *http.Request, request any) error {
 	defer func() {
 		_ = r.Body.Close()
 	}()
-	body, err := io.ReadAll(r.Body)
-	if err != nil {
-		return fmt.Errorf("reading http request body: %w", err)
-	}
-	dec := json.NewDecoder(bytes.NewReader(body))
+	dec := json.NewDecoder(r.Body)
 	dec.DisallowUnknownFields()
-	err = dec.Decode(&request)
+	err := dec.Decode(&request)
 	if err != nil {
 		return fmt.Errorf("decoding http request body: %w", err)
 
