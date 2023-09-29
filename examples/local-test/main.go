@@ -13,7 +13,7 @@ func init() {
 	functions.HTTP("bigquery", bigqueryudf.NewHandler(transformationExample))
 }
 
-// This example creates a Cloud Function using the functions framework. To run it, follow all instriuctions from how-to.md
+// This example creates a Cloud Function using the functions framework. To run it, follow all instriuctions from README.md
 func main() {
 	port := "8000"
 	if envPort := os.Getenv("PORT"); envPort != "" {

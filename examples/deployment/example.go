@@ -5,7 +5,7 @@ import (
 	"github.com/arquivei/bigqueryudf"
 )
 
-// This example deploys a Cloud Function inside Big Query. To run it, follow all instriuctions from how-to.md 
+// This example deploys a Cloud Function inside Big Query. To run it, follow all instriuctions from README.md 
 func init() {
 	functions.HTTP("bigquery", bigqueryudf.NewHandler(transformationExample))
 }
