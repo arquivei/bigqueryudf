@@ -1,0 +1,7 @@
+**/vendor/
+/.cache/
+/.cover/
+/.env
+/.idea/
+/.vscode/
+**/.env
