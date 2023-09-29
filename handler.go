@@ -64,7 +64,6 @@ func decodeRequestBody(r *http.Request, request any) error {
 	err := dec.Decode(&request)
 	if err != nil {
 		return fmt.Errorf("decoding http request body: %w", err)
-
 	}
 	return nil
 }
